@@ -10,7 +10,6 @@ export default function NavBar() {
                 <ul className="list">
                     <li className="list-item">
                         <NavLink to="/" >Home</NavLink>
-                        <br/>
                         <NavLink to="/favs" >Favoritas</NavLink>
                     </li>
                 </ul>

@@ -18,9 +18,12 @@ function Movie() {
     <>
       <div className="movie-detail">
         <ul>
-          <li>{movieDetail.Title}</li>
-          <li>{movieDetail.Year}</li>
-          <li>{movieDetail.Rated}</li>
+          <li>{movieDetail.original_title}</li>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`}
+            alt="IMAGEN POSTER"
+          />
+          <li>{movieDetail.overview}</li>
         </ul>
       </div>
     </>
