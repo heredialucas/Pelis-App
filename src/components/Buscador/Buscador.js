@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Buscador.css";
-import {
-  addMovieFavorite,
-  getMoviePopular,
-  getMovies,
-} from "../../redux/actions/actions";
-import Imagen from "../../assets/images/noimg.jpg";
+import { getMoviePopular, getMovies } from "../../redux/actions/actions";
+
+import Peliculas from "../Peliculas/Peliculas";
 
 function Buscador() {
   const dispatch = useDispatch();
   const moviesLoaded = useSelector((state) => state.moviesLoaded);
-  const redir = useNavigate();
 
   const [title, setTitle] = useState("");
   const [titleCache, setTitleCache] = useState("");
@@ -32,13 +27,13 @@ function Buscador() {
 
   useEffect(() => {
     dispatch(getMoviePopular());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (page > 0 && titleCache !== "") {
       dispatch(getMovies(titleCache, page));
     }
-  }, [page]);
+  }, [dispatch,titleCache,page]);
 
   function nextPage() {
     if (page > 0 && (titleCache !== "") & (moviesLoaded.length > 1)) {
@@ -55,10 +50,8 @@ function Buscador() {
     <div>
       <h2>Buscador</h2>
       <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label className="label" htmlFor="title">
-            Película:
-          </label>
+        <div className="form-container-search">
+          <div className="icon"></div>
           <input
             className="input"
             type="text"
@@ -68,60 +61,8 @@ function Buscador() {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button className="button" type="submit">
-          BUSCAR
-        </button>
       </form>
-
-      <ul className="containerPelis">
-        {moviesLoaded.length === 0 ? (
-          <h3>No hay nada para mostrar</h3>
-        ) : (
-          moviesLoaded.map((e, index) => {
-            return (
-              <div className="card" key={index}>
-                <div className="poster">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
-                    alt="Imagenes"
-                  />
-                </div>
-                <div className="details" to={`/movie/${e.id}`}>
-                  <h2>
-                    {e.original_title}
-                    <br />
-                    <span>Date: {e.release_date}</span>
-                  </h2>
-                  <div className="tags">
-                    <span className="lenguaje">{e.original_language}</span>
-                    <span className="voted">{e.vote_average}</span>
-                  </div>
-                  <Link className="btn-link" to={`/movie/${e.id}`}>
-                    Details
-                  </Link>
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      redir("/favs");
-                      dispatch(
-                        addMovieFavorite({
-                          title: e.original_title,
-                          poster: e.poster_path,
-                          id: e.id,
-                          voted: e.vote_average,
-                          lenguaje: e.original_language,
-                        })
-                      );
-                    }}
-                  >
-                    Agregar a Favoritas
-                  </button>
-                </div>
-              </div>
-            );
-          })
-        )}
-      </ul>
+      <Peliculas />
       <button onClick={() => previousPage()} type="button">
         Anterior
       </button>
