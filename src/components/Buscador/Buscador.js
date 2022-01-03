@@ -79,38 +79,44 @@ function Buscador() {
         ) : (
           moviesLoaded.map((e, index) => {
             return (
-              <div className="containerPelisDiv" key={index}>
-                <Link className="containerPelisLink" to={`/movie/${e.id}`}>
-                  <h3 className="containerPelisTitle">{e.original_title}</h3>
-                  {!e.poster_path ? (
-                    <img
-                      className="containerPelisImg"
-                      src={Imagen}
-                      alt="IMAGEN POSTER"
-                    />
-                  ) : (
-                    <img
-                      className="containerPelisImg"
-                      src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
-                      alt="IMAGEN POSTER"
-                    />
-                  )}
-                </Link>
-                <button
-                  className="containerPelisButton"
-                  onClick={() => {
-                    redir("/favs");
-                    dispatch(
-                      addMovieFavorite({
-                        title: e.original_title,
-                        poster: e.poster_path,
-                        id: e.id,
-                      })
-                    );
-                  }}
-                >
-                  Agregar a Favoritas
-                </button>
+              <div className="card" key={index}>
+                <div className="poster">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
+                    alt="Imagenes"
+                  />
+                </div>
+                <div className="details" to={`/movie/${e.id}`}>
+                  <h2>
+                    {e.original_title}
+                    <br />
+                    <span>Date: {e.release_date}</span>
+                  </h2>
+                  <div className="tags">
+                    <span className="lenguaje">{e.original_language}</span>
+                    <span className="voted">{e.vote_average}</span>
+                  </div>
+                  <Link className="btn-link" to={`/movie/${e.id}`}>
+                    Details
+                  </Link>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      redir("/favs");
+                      dispatch(
+                        addMovieFavorite({
+                          title: e.original_title,
+                          poster: e.poster_path,
+                          id: e.id,
+                          voted: e.vote_average,
+                          lenguaje: e.original_language,
+                        })
+                      );
+                    }}
+                  >
+                    Agregar a Favoritas
+                  </button>
+                </div>
               </div>
             );
           })

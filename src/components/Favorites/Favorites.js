@@ -16,22 +16,35 @@ function ConnectedList() {
         ) : (
           moviesFavourites.map((e, index) => {
             return (
-              <div className="containerPelisDiv" key={index}>
-                <Link className="containerPelisLink" to={`/movie/${e.id}`}>
-                  <h3 className="containerPelisTitle">{e.title}</h3>
-                  <img
-                    className="containerPelisImg"
-                    src={`https://image.tmdb.org/t/p/w500${e.poster}`} 
-                    alt="ImagenPoster"
-                  />
-                </Link>
+              <div className="card" key={index}>
+              <div className="poster">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${e.poster}`}
+                  alt="Imagenes"
+                />
+              </div>
+              <div className="details" to={`/movie/${e.id}`}>
+                <h2>
+                  {e.title}
+                  <br />
+                   <span>Date: {e.release_date}</span>
+                </h2>
+                <div className="tags">
+                  <span className="lenguaje">{e.lenguaje}</span>
+                  <span className="voted">{e.voted}</span>
+                </div>
+                <Link className="btn-link" to={`/movie/${e.id}`}>
+                    Details
+                  </Link>
                 <button
-                  className="containerPelisButton"
+                  className="btn-delete"
                   onClick={() => dispatch(removeMovieFavorite(e.id))}
                 >
                   Eliminar
                 </button>
+                
               </div>
+            </div>
             );
           })
         )}
