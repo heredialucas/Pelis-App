@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Pelis-App/static/css/main.1c5bde2b.css",
-    "main.js": "/Pelis-App/static/js/main.fe08843e.js",
+    "main.css": "/Pelis-App/static/css/main.549f4545.css",
+    "main.js": "/Pelis-App/static/js/main.e9e2beed.js",
     "static/js/787.9d022a8f.chunk.js": "/Pelis-App/static/js/787.9d022a8f.chunk.js",
     "static/media/noimg.jpg": "/Pelis-App/static/media/noimg.f494b33fa638645624c2.jpg",
     "index.html": "/Pelis-App/index.html",
-    "main.1c5bde2b.css.map": "/Pelis-App/static/css/main.1c5bde2b.css.map",
-    "main.fe08843e.js.map": "/Pelis-App/static/js/main.fe08843e.js.map",
+    "main.549f4545.css.map": "/Pelis-App/static/css/main.549f4545.css.map",
+    "main.e9e2beed.js.map": "/Pelis-App/static/js/main.e9e2beed.js.map",
     "787.9d022a8f.chunk.js.map": "/Pelis-App/static/js/787.9d022a8f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c5bde2b.css",
-    "static/js/main.fe08843e.js"
+    "static/css/main.549f4545.css",
+    "static/js/main.e9e2beed.js"
   ]
 }
