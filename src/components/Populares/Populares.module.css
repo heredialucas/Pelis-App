@@ -1,3 +1,15 @@
+.swiper{
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  border: 2px solid aliceblue;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+.swiper span{
+  display: none;
+}
 .containerPelis {
   position: relative;
   display: flex;
@@ -11,6 +23,7 @@
 }
 .containerPelisDiv {
   display: flex;
+  flex-direction: row;
   margin: 0;
   transition: 0.5s;
 }
@@ -116,3 +129,4 @@
   border-radius: 60px;
   z-index: 500;
 }
+

@@ -1,52 +1,40 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMoviePopular } from "../../redux/actions/actions";
 import Imagen from "../../assets/images/noimg.jpg";
 import { Link } from "react-router-dom";
 import s from "./Populares.module.css";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import SwiperCore, { Pagination } from "swiper";
+
+SwiperCore.use([Pagination]);
+
 export default function Pop() {
   const dispatch = useDispatch();
-  const ref = useRef();
-  const refContainer = useRef();
   const moviesPop = useSelector((state) => state.moviesPop);
-
-  const [aux, setAux] = useState(0);
 
   useEffect(() => {
     dispatch(getMoviePopular());
   }, [dispatch]);
 
-  useEffect(() => {
-    ref.current.style.marginLeft = aux + "px";
-  }, [aux]);
-
-  function onLeft() {
-    if (aux >= 0) {
-      setAux(0);
-    }
-    if (aux < 0) {
-      setAux(aux + 300);
-    }
-  }
-  function onRight() {
-    if (aux <= refContainer.current.clientWidth - ref.current.scrollWidth) {
-      setAux(refContainer.current.clientWidth - ref.current.scrollWidth);
-    } else if (aux === 0) {
-      setAux(aux - 300);
-    } else {
-      setAux(aux - 300);
-    }
-  }
-
   return (
-    <div ref={refContainer} className={s.containerPelis}>
-      <button onClick={() => onLeft()} className={s.buttonLeft}></button>
-      <button onClick={() => onRight()} className={s.buttonRight}></button>
-      <div ref={ref} className={s.containerPelisDiv}>
-        {moviesPop &&
-          moviesPop.map((e, index) => {
-            return (
+    <Swiper
+      slidesPerView={5}
+      spaceBetween={50}
+      pagination={{
+        clickable: true,
+      }}
+      className={s.swiper}
+    >
+      {moviesPop &&
+        moviesPop.map((e, index) => {
+          return (
+            <SwiperSlide>
               <div className={s.card} key={index}>
                 <div className={s.poster}>
                   {!e.poster_path ? (
@@ -62,16 +50,16 @@ export default function Pop() {
                   <h2>
                     {e.original_title}
                     <br />
-                    <span>Date: {e.release_date}</span>
+                    <p>Date: {e.release_date}</p>
                   </h2>
                   <Link className={s.btnLink} to={`/movie/${e.id}`}>
                     Details
                   </Link>
                 </div>
               </div>
-            );
-          })}
-      </div>
-    </div>
+            </SwiperSlide>
+          );
+        })}
+    </Swiper>
   );
 }
