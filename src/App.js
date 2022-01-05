@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { Routes, Route } from "react-router";
 import Movie from "./components/Movies/Movies";
 
+
 function App() {
   return (
     <>

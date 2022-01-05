@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Buscador.css";
 import { getMoviePopular, getMovies } from "../../redux/actions/actions";
-
+import Populares from '../Populares/Populares'
 import Peliculas from "../Peliculas/Peliculas";
 
 function Buscador() {
@@ -18,22 +18,20 @@ function Buscador() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    dispatch(getMovies(title, page));
-    setTitleCache(title);
-    setTitle("");
-    setPage(1);
+    if (title !== "") {
+      e.preventDefault();
+      dispatch(getMovies(title, page));
+      setTitleCache(title);
+      setTitle("");
+      setPage(1);
+    }
   }
-
-  useEffect(() => {
-    dispatch(getMoviePopular());
-  }, [dispatch]);
 
   useEffect(() => {
     if (page > 0 && titleCache !== "") {
       dispatch(getMovies(titleCache, page));
     }
-  }, [dispatch,titleCache,page]);
+  }, [dispatch, titleCache, page]);
 
   function nextPage() {
     if (page > 0 && (titleCache !== "") & (moviesLoaded.length > 1)) {
@@ -47,21 +45,28 @@ function Buscador() {
   }
 
   return (
-    <div>
-      <h2>Buscador</h2>
+    <div className="containerForm">
       <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
         <div className="form-container-search">
-          <div className="icon"></div>
+          <button className="icon" onClick={(e) => handleSubmit(e)}></button>
           <input
             className="input"
             type="text"
             id="title"
+            placeholder="Película"
             autoComplete="off"
             value={title}
             onChange={(e) => handleChange(e)}
           />
         </div>
+        <button onClick={() => nextPage()} type="button">
+          Siguiente
+        </button>
+        <button onClick={() => previousPage()} type="button">
+          Anterior
+        </button>
       </form>
+      <Populares/>
       <Peliculas />
       <button onClick={() => previousPage()} type="button">
         Anterior

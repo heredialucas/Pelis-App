@@ -2,7 +2,7 @@ import { getMovieDetail } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import "./Movies.css";
+import s from "./Movies.module.css";
 import { useParams } from "react-router-dom";
 
 function Movie() {
@@ -12,13 +12,13 @@ function Movie() {
 
   useEffect(() => {
     dispatch(getMovieDetail(movieId.id));
-  }, []);
+  }, [dispatch,movieId]);
 
   return (
-    <div className="container">
-      <div className="containerImg">
-        <h2 className="title">{movieDetail.original_title}</h2>
-        <div className="content">
+    <div className={s.container}>
+      <div className={s.containerImg}>
+        <h2 className={s.title}>{movieDetail.original_title}</h2>
+        <div className={s.content}>
           <h3>{movieDetail.tagline}</h3>
           <p>{movieDetail.overview}</p>
           <h4>Fecha de estreno: <span>{movieDetail.release_date}</span></h4>

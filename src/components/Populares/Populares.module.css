@@ -1,0 +1,112 @@
+.containerPelis {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #000;
+}
+.containerPelisDiv {
+  display: flex;
+  margin: 0;
+  transition: 0.5s;
+}
+
+.card {
+  position: relative;
+  margin: 10px;
+  width: 200px;
+  height: 350px;
+  background-color: #000;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card .poster:before {
+  content: "";
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #000 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+.card:hover .poster:before {
+  bottom: 0px;
+  cursor: pointer;
+}
+.card .poster {
+  position: relative;
+  overflow: hidden;
+}
+.card .poster img {
+  width: 100%;
+  transition: 0.5s;
+}
+.card:hover .poster img {
+  width: 100%;
+  filter: blur(3px);
+  transform: translateY(-50px);
+}
+
+.details {
+  position: absolute;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card:hover .details {
+  transition: 0.5s;
+  bottom: 5px;
+}
+.details h2 {
+  height: 70px;
+  color: #fff;
+  padding: 0;
+  font-size: 15px;
+}
+.details h2 span {
+  font-size: 10px;
+  color: #ffffff;
+}
+
+.btnLink {
+  width: 40px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background: #7206f7;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px;
+  color: #fff;
+}
+
+.buttonLeft {
+  position: absolute;
+  left: 0px;
+  align-self: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  z-index: 500;
+}
+.buttonRight {
+  position: absolute;
+  right: 0;
+  align-self: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  z-index: 500;
+}

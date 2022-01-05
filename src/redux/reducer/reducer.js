@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   moviesFavourites: [],
+  moviesPop: [],
   moviesLoaded: [],
   movieDetail: {},
 };
@@ -15,18 +16,20 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_MOVIE_FAVORITE:
-    const movie = state.moviesFavourites.find(movie => movie.id === action.payload.id)
-    if(!movie){
-      return {
+      const movie = state.moviesFavourites.find(
+        (movie) => movie.id === action.payload.id
+      );
+      if (!movie) {
+        return {
           ...state,
           moviesFavourites: [...state.moviesFavourites, action.payload],
         };
-    }else{
-      return {
-        ...state,
-        moviesFavourites: [...state.moviesFavourites]
+      } else {
+        return {
+          ...state,
+          moviesFavourites: [...state.moviesFavourites],
+        };
       }
-    }
 
     case GET_MOVIES:
       return {
@@ -42,7 +45,7 @@ function rootReducer(state = initialState, action) {
     case GET_MOVIE_POPULAR:
       return {
         ...state,
-        moviesLoaded: action.payload.results,
+        moviesPop: action.payload.results,
       };
 
     case REMOVE_MOVIE_FAVORITE:

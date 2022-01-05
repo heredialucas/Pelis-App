@@ -1,7 +1,8 @@
+
 .containerPelis {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   }
   .card {
     position: relative;
@@ -92,7 +93,7 @@
     background: #f7068b;
   }
   
-  .btn-link {
+  .btnLink {
     text-decoration: none;
     border: 1px solid #fff;
     background: #7206f7;

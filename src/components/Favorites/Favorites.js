@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { removeMovieFavorite } from "../../redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
-import "./Favorites.css";
+import s from "./Favorites.module.css";
 
 function ConnectedList() {
   const dispatch = useDispatch();
@@ -10,34 +10,34 @@ function ConnectedList() {
   return (
     <div>
       <h2>Películas Favoritas</h2>
-      <ul className="containerPelis">
+      <ul className={s.containerPelis}>
         {moviesFavourites.length === 0 ? (
           <h3>No hay películas agregadas</h3>
         ) : (
           moviesFavourites.map((e, index) => {
             return (
-              <div className="card" key={index}>
-              <div className="poster">
+              <div className={s.card} key={index}>
+              <div className={s.poster}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${e.poster}`}
                   alt="Imagenes"
                 />
               </div>
-              <div className="details" to={`/movie/${e.id}`}>
+              <div className={s.details} to={`/movie/${e.id}`}>
                 <h2>
                   {e.title}
                   <br />
                    <span>Date: {e.release_date}</span>
                 </h2>
-                <div className="tags">
-                  <span className="lenguaje">{e.lenguaje}</span>
-                  <span className="voted">{e.voted}</span>
+                <div className={s.tags}>
+                  <span className={s.lenguaje}>{e.lenguaje}</span>
+                  <span className={s.voted}>{e.voted}</span>
                 </div>
-                <Link className="btn-link" to={`/movie/${e.id}`}>
+                <Link className={s.btnLink} to={`/movie/${e.id}`}>
                     Details
                   </Link>
                 <button
-                  className="btn-delete"
+                  className={s.btnDelete}
                   onClick={() => dispatch(removeMovieFavorite(e.id))}
                 >
                   Eliminar
