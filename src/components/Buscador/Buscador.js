@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Buscador.css";
 import { getMoviePopular, getMovies } from "../../redux/actions/actions";
-import Populares from '../Populares/Populares'
+import Populares from "../Populares/Populares";
 import Peliculas from "../Peliculas/Peliculas";
 
 function Buscador() {
@@ -46,6 +46,7 @@ function Buscador() {
 
   return (
     <div className="containerForm">
+      <Populares />
       <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
         <div className="form-container-search">
           <button className="icon" onClick={(e) => handleSubmit(e)}></button>
@@ -59,21 +60,38 @@ function Buscador() {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button onClick={() => nextPage()} type="button">
+        <button
+          className="btnTopRigth"
+          onClick={() => nextPage()}
+          type="button"
+        >
           Siguiente
         </button>
-        <button onClick={() => previousPage()} type="button">
+        <button
+          className="btnTopLeft"
+          onClick={() => previousPage()}
+          type="button"
+        >
           Anterior
         </button>
       </form>
-      <Populares/>
       <Peliculas />
-      <button onClick={() => previousPage()} type="button">
-        Anterior
-      </button>
-      <button onClick={() => nextPage()} type="button">
-        Siguiente
-      </button>
+      <div className="btnContainer">
+        <button
+          className="btnDownLeft"
+          onClick={() => previousPage()}
+          type="button"
+        >
+          Anterior
+        </button>
+        <button
+          className="btnDownRigth"
+          onClick={() => nextPage()}
+          type="button"
+        >
+          Siguiente
+        </button>
+      </div>
     </div>
   );
 }

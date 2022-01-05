@@ -1,9 +1,13 @@
 .containerPelis {
   position: relative;
   display: flex;
-  width: 100%;
+  padding: 15px;
+  width: 80%;
   overflow: hidden;
-  border: 2px solid #000;
+  border: 2px solid rgb(253, 253, 253);
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 .containerPelisDiv {
   display: flex;
@@ -94,6 +98,7 @@
 
 .buttonLeft {
   position: absolute;
+  background: #f7068b;
   left: 0px;
   align-self: center;
   height: 60px;
@@ -103,6 +108,7 @@
 }
 .buttonRight {
   position: absolute;
+  background: #f7068b;
   right: 0;
   align-self: center;
   height: 60px;

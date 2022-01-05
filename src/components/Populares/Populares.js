@@ -8,6 +8,7 @@ import s from "./Populares.module.css";
 export default function Pop() {
   const dispatch = useDispatch();
   const ref = useRef();
+  const refContainer = useRef();
   const moviesPop = useSelector((state) => state.moviesPop);
 
   const [aux, setAux] = useState(0);
@@ -17,28 +18,30 @@ export default function Pop() {
   }, [dispatch]);
 
   useEffect(() => {
-    ref.current.style.marginLeft = aux + "px";   
-    console.log(aux) 
-    console.log(ref)
+    ref.current.style.marginLeft = aux + "px";
   }, [aux]);
 
   function onLeft() {
-    if (aux > 0) {
+    if (aux >= 0) {
       setAux(0);
     }
-    if(aux < 0){
-      setAux(aux + 300)
+    if (aux < 0) {
+      setAux(aux + 300);
     }
   }
   function onRight() {
-    if(aux < ref.current.clientWidth&& aux > (-ref.current.clientWidth + 1100) ){
+    if (aux <= refContainer.current.clientWidth - ref.current.scrollWidth) {
+      setAux(refContainer.current.clientWidth - ref.current.scrollWidth);
+    } else if (aux === 0) {
+      setAux(aux - 300);
+    } else {
       setAux(aux - 300);
     }
   }
 
   return (
-    <div className={s.containerPelis}>
-      <button  onClick={() => onLeft()} className={s.buttonLeft}></button>
+    <div ref={refContainer} className={s.containerPelis}>
+      <button onClick={() => onLeft()} className={s.buttonLeft}></button>
       <button onClick={() => onRight()} className={s.buttonRight}></button>
       <div ref={ref} className={s.containerPelisDiv}>
         {moviesPop &&
