@@ -60,20 +60,22 @@ function Buscador() {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button
-          className="btnTopRigth"
-          onClick={() => nextPage()}
-          type="button"
-        >
-          Siguiente
-        </button>
-        <button
-          className="btnTopLeft"
-          onClick={() => previousPage()}
-          type="button"
-        >
-          Anterior
-        </button>
+        <div className="form-container-btn">
+          <button
+            className="btnTopLeft"
+            onClick={() => previousPage()}
+            type="button"
+          >
+            Anterior
+          </button>
+          <button
+            className="btnTopRigth"
+            onClick={() => nextPage()}
+            type="button"
+          >
+            Siguiente
+          </button>
+        </div>
       </form>
       <Peliculas />
       <div className="btnContainer">

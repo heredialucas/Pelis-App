@@ -1,7 +1,7 @@
 .swiper{
   display: flex;
   justify-content: flex-end;
-  width: 80%;
+  width: 100%;
   border: 2px solid aliceblue;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
@@ -130,3 +130,10 @@
   z-index: 500;
 }
 
+@media screen and (max-width: 800px ) {
+  
+  .swiper{
+    display: none;
+  }
+  
+}

@@ -9,7 +9,7 @@ function ConnectedList() {
   const moviesFavourites = useSelector((state) => state.moviesFavourites);
   return (
     <div>
-      <h2>Películas Favoritas</h2>
+      <h2 className={s.favsTitle}>Películas Favoritas</h2>
       <ul className={s.containerPelis}>
         {moviesFavourites.length === 0 ? (
           <h3>No hay películas agregadas</h3>

@@ -24,7 +24,7 @@ export default function Pop() {
 
   return (
     <Swiper
-      slidesPerView={5}
+      slidesPerView={6}
       spaceBetween={50}
       pagination={{
         clickable: true,

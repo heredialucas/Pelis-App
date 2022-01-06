@@ -100,3 +100,16 @@
     color: rgb(0, 0, 0);
     margin: 15px 0 35px;
 }
+
+@media screen and (max-width: 800px ) {
+  
+  .container{
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container img{
+    max-height: 80vh;
+    margin-left: 130px;
+}
+}
