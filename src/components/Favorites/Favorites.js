@@ -1,8 +1,13 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 import { removeMovieFavorite } from "../../redux/actions/actions";
+
 import { useSelector, useDispatch } from "react-redux";
+
 import s from "./Favorites.module.css";
+
+import Espera from "../Espera/Espera";
 
 function ConnectedList() {
   const dispatch = useDispatch();
@@ -12,7 +17,7 @@ function ConnectedList() {
       <h2 className={s.favsTitle}>Películas Favoritas</h2>
       <ul className={s.containerPelis}>
         {moviesFavourites.length === 0 ? (
-          <h3>No hay películas agregadas</h3>
+          <Espera/>
         ) : (
           moviesFavourites.map((e, index) => {
             return (

@@ -87,12 +87,12 @@
   bottom: 5px;
 }
 .details h2 {
-  height: 70px;
+  height: 90px;
   color: #fff;
   padding: 0;
   font-size: 15px;
 }
-.details h2 span {
+.details h2 p {
   font-size: 10px;
   color: #ffffff;
 }

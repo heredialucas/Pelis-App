@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import "./Buscador.css";
-import { getMoviePopular, getMovies } from "../../redux/actions/actions";
+
+import React, { useState, useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "../../redux/actions/actions";
+
 import Populares from "../Populares/Populares";
 import Peliculas from "../Peliculas/Peliculas";
+import Button from "../Button/Button";
 
 function Buscador() {
   const dispatch = useDispatch();
@@ -60,40 +64,12 @@ function Buscador() {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <div className="form-container-btn">
-          <button
-            className="btnTopLeft"
-            onClick={() => previousPage()}
-            type="button"
-          >
-            Anterior
-          </button>
-          <button
-            className="btnTopRigth"
-            onClick={() => nextPage()}
-            type="button"
-          >
-            Siguiente
-          </button>
-        </div>
+        <Button nextPage={nextPage} previousPage={previousPage} />
       </form>
       <Peliculas />
-      <div className="btnContainer">
-        <button
-          className="btnDownLeft"
-          onClick={() => previousPage()}
-          type="button"
-        >
-          Anterior
-        </button>
-        <button
-          className="btnDownRigth"
-          onClick={() => nextPage()}
-          type="button"
-        >
-          Siguiente
-        </button>
-      </div>
+      {moviesLoaded.length !== 0 && (
+        <Button nextPage={nextPage} previousPage={previousPage} />
+      )}
     </div>
   );
 }
