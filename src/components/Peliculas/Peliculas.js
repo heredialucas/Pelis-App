@@ -10,7 +10,7 @@ export default function Peliculas() {
 
   return (
     <ul className={s.containerPelis}>
-      {moviesLoaded.length === 0 ? <Espera /> : <Card />}
+      {moviesLoaded?.length === 0 ? <Espera number={3} /> : <Card />}
     </ul>
   );
 }

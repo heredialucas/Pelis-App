@@ -1,0 +1,76 @@
+.btnTopRigth {
+  box-shadow: 0 0 5px 0px #000000;
+
+  height: 40px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background: #f7068b;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  color: #fff;
+  margin: 10px;
+}
+.btnTopLeft {
+  box-shadow: 0 0 5px 0px #000000;
+
+  height: 40px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background: #7206f7;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  color: #fff;
+  margin: 10px;
+}
+
+.btnTopRigth:hover {
+  opacity: .3;
+  cursor: pointer;
+}
+.btnTopLeft:hover {
+  opacity: .3;
+  cursor: pointer;
+}
+
+.btnContainer {
+  display: flex;
+}
+.btnDownRigth {
+  box-shadow: 0 0 5px 0px #000000;
+
+  height: 40px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background: #7206f7;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  color: #fff;
+  margin: 10px;
+}
+.btnDownLeft {
+  box-shadow: 0 0 5px 0px #000000;
+
+  height: 40px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  background: #f7068b;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  color: #fff;
+  margin: 10px;
+}
+
+.btnDownRigth:hover {
+  cursor: pointer;
+}
+.btnDownLeft:hover {
+  cursor: pointer;
+}

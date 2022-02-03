@@ -1,0 +1,28 @@
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
+}
+.navBar img{
+  cursor: pointer;
+    height: 50px;
+    margin: 15px;
+    color: red;
+   filter: brightness(0);  
+}
+
+.containerbtn {
+  display: flex;
+  align-items: center;
+}
+.btn {
+    color: rgba(0, 0, 0, 0.686);
+    font-weight: 600;
+  font-size: 20px;
+  padding: 0 10px;
+}
+.btn:hover{
+    text-decoration: underline;
+}

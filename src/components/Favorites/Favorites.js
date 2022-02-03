@@ -17,7 +17,7 @@ function ConnectedList() {
       <h2 className={s.favsTitle}>Películas Favoritas</h2>
       <ul className={s.containerPelis}>
         {moviesFavourites.length === 0 ? (
-          <Espera/>
+          <Espera number={6}/>
         ) : (
           moviesFavourites.map((e, index) => {
             return (
