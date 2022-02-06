@@ -109,7 +109,13 @@
   }
   
   .container img{
+    margin: 10px;
+    width: 300px;
     max-height: 80vh;
-    margin-left: 130px;
+  }
+  .containerImg{
+    min-height: 0;
+    padding: 10px;
+  margin-bottom: 0;
 }
 }

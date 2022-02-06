@@ -5,7 +5,6 @@ import { addMovieFavorite } from "../../redux/actions/actions";
 import s from "./Espera.module.css";
 
 export default function Espera({number}) {
-  console.log(number)
   const moviesPop = useSelector((state) => state.moviesPop);
   const dispatch = useDispatch();
   const redir = useNavigate();

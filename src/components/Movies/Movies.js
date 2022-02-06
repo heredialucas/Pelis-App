@@ -1,7 +1,6 @@
-import { getMovieDetail } from "../../redux/actions/actions";
+import { getMovieDetail, cleanDetail,addMovieFavorite } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { addMovieFavorite } from "../../redux/actions/actions";
 
 import s from "./Movies.module.css";
 import { useParams, useNavigate } from "react-router-dom";
@@ -12,6 +11,10 @@ function Movie() {
   const dispatch = useDispatch();
   const redir = useNavigate();
 
+
+  useEffect(()=>{
+    return ()=> dispatch(cleanDetail({})) 
+  },[dispatch])
 
   useEffect(() => {
     dispatch(getMovieDetail(movieId.id));

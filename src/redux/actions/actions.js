@@ -1,5 +1,6 @@
 export const ADD_MOVIE_FAVORITE = "addMovieFavorite";
 export const GET_MOVIES = "getMovies";
+export const CLEAN_DETAIL = "cleanDetail";
 export const GET_MOVIE_DETAIL = "getMovieDetail";
 export const GET_MOVIE_POPULAR = "getMoviePopular";
 export const REMOVE_MOVIE_FAVORITE = "removeMovieFavorite";
@@ -42,6 +43,9 @@ export function getMovieDetail(id) {
 
 export function addMovieFavorite(payload) {
   return { type: ADD_MOVIE_FAVORITE, payload };
+}
+export function cleanDetail(payload) {
+  return { type: CLEAN_DETAIL, payload };
 }
 
 export function getMovies(titulo, page) {

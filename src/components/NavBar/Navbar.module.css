@@ -1,7 +1,7 @@
 .navBar {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 100vw;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
 }

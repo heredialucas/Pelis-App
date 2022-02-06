@@ -1,6 +1,7 @@
 import {
   ADD_MOVIE_FAVORITE,
   GET_MOVIES,
+  CLEAN_DETAIL,
   GET_MOVIE_DETAIL,
   GET_MOVIE_POPULAR,
   REMOVE_MOVIE_FAVORITE,
@@ -35,6 +36,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         moviesLoaded: action.payload.results,
+      };
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        movieDetail: action.payload,
       };
 
     case GET_MOVIE_DETAIL:
